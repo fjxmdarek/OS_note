@@ -1,6 +1,6 @@
 # OS_note
 
-host ssh:
+# host ssh:
 
 ```bash
 systemctl start ssh

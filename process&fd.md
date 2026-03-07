@@ -66,14 +66,6 @@ struct file __rcu **fd;   /* 下标即 fd 编号，值为 struct file 指针 */
 - `i_mapping`：页缓存（地址空间）
 
 ---
-
-## 关键区别：`struct file` vs `struct inode`
-
-| | `struct file` | `struct inode` |
-|---|---|---|
-| 代表 | 一次 open() 实例 | 文件实体本身 |
-| 数量 | 同一文件可有多个 | 每个文件唯一 |
-| 记录 | 偏移、flags、访问权限 | 元数据、数据块位置 |
 | 类比 | 打开的书签 | 书本身 |
 
 同一个文件被多次 `open()`，会产生多个 `struct file`，但它们的 `f_inode` 都指向同一个 `struct inode`。
